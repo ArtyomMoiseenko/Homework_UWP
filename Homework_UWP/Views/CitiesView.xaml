@@ -1,0 +1,65 @@
+﻿<Page
+    x:Class="Homework_UWP.Views.CitiesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Homework_UWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding CitiesVMInstance, Source={StaticResource Locator}}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBox 
+                    TextAlignment="Left"
+                    Name="addName"
+                    PlaceholderText="City name"
+                    Grid.Column="0"
+                    Margin="10, 0, 10, 0"/>
+            <Button Content="Add"
+                    Command="{Binding AddCommand}"
+                    CommandParameter="{Binding ElementName=addName, Path=Text}"
+                    HorizontalAlignment="Stretch"
+                    Foreground="White"
+                    Grid.Column="2"/>
+        </StackPanel>
+
+        <ListView Grid.ColumnSpan="3" Grid.Row="1" ItemsSource="{Binding Cities}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBox Text="{Binding Name}"
+                                TextAlignment="Left"
+                                Name="editName"
+                                Grid.Column="0"
+                                Margin="10, 0, 10, 0"/>
+                        <Button Content="Edit"  
+                                Command="{Binding EditCommand}"
+                                CommandParameter="{Binding ElementName=editName, Path=Text}"
+                                HorizontalAlignment="Stretch"
+                                Foreground="White"
+                                Grid.Column="1"
+                                Margin="10, 0, 10, 0"/>
+                        <Button Content="Delete"
+                                Command="{Binding DeleteCommand}"
+                                CommandParameter="{Binding ElementName=editName, Path=Text}"
+                                HorizontalAlignment="Stretch"
+                                Foreground="White"
+                                Grid.Column="2"
+                                Margin="10, 0, 10, 0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

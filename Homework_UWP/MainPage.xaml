@@ -8,6 +8,16 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Pivot x:Name="rootPivot" Title="Weather">
+            <PivotItem Header="Forecasts">
+                <Frame x:Name="WeatherPage" />
+            </PivotItem>
+            <PivotItem Header="Logs">
+                <Frame x:Name="LogsPage" />
+            </PivotItem>
+            <PivotItem Header="Favorite cities">
+                <Frame x:Name="CitiesPage" />
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>

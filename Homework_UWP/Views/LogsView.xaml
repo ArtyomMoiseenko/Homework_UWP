@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="Homework_UWP.Views.LogsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Homework_UWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding LogsVMInstance, Source={StaticResource Locator}}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock Text="Ip" Grid.Column="0"  Margin="0,0,10,0"/>
+            <TextBlock Text="City" Grid.Column="1" Margin="0,0,10,0"/>
+            <TextBlock Text="Date" Grid.Column="2" Margin="0,0,10,0"/>
+            <TextBlock Text="Temperature" Grid.Column="3" Margin="0,0,10,0"/>
+            <TextBlock Text="Description" Grid.Column="4" Margin="0,0,10,0"/>
+        </StackPanel>
+
+        <ListView Grid.ColumnSpan="5" Grid.Row="1" ItemsSource="{Binding Logs}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="{Binding Ip}" Grid.Column="0" Margin="0,0,40,0"/>
+                        <TextBlock Text="{Binding City}" Grid.Column="1" Margin="0,0,40,0"/>
+                        <TextBlock Text="{Binding Date}" Grid.Column="2" Margin="0,0,40,0"/>
+                        <TextBlock Text="{Binding Temperature}" Grid.Column="3" Margin="0,0,40,0"/>
+                        <TextBlock Text="{Binding DescriptionWeather}" Grid.Column="4" Margin="0,0,40,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

@@ -1,5 +1,4 @@
 ﻿using Homework_UWP.ViewModels;
-using Homework_UWP.Views;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,21 +14,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x419
+// Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Homework_UWP
+namespace Homework_UWP.Views
 {
     /// <summary>
     /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class WeatherView : Page
     {
-        public MainPage()
+        public WeatherView()
         {
             this.InitializeComponent();
-            WeatherPage.Navigate(typeof(WeatherView));
-            LogsPage.Navigate(typeof(LogsView));
-            CitiesPage.Navigate(typeof(CitiesView));
         }
     }
 }

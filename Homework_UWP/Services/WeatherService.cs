@@ -1,5 +1,4 @@
 ﻿using Homework_UWP.Models;
-using Homework_UWP.Services.Configuration;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -12,7 +11,7 @@ namespace Homework_UWP.Services
 
         public WeatherService()
         {
-            _baseUrl = "localhost:5000";
+            _baseUrl = $"http://localhost:50624";
         }
 
         public async Task<WeatherModel> GetWeatherCity(string city, string countDays)

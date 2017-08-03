@@ -1,5 +1,6 @@
 ﻿using Homework_UWP.Models;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -12,19 +13,19 @@ namespace Homework_UWP.Services
 
         public CityService()
         {
-            _baseUrl = "localhost:5000";
+            _baseUrl = $"http://localhost:50624";
         }
 
-        public async Task<CityModel> GetCities()
+        public async Task<IEnumerable<CityModel>> GetCities()
         {
             var url = $"{_baseUrl}/api/Cities";
-            CityModel cities;
+            IEnumerable<CityModel> cities;
 
             using (var client = new HttpClient())
             {
                 var response = await client.GetAsync(url);
                 var json = await response.Content.ReadAsStringAsync();
-                cities = JsonConvert.DeserializeObject<CityModel>(json);
+                cities = JsonConvert.DeserializeObject<IEnumerable<CityModel>>(json);
             }
 
             return cities;
